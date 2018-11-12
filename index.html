@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Form Generator</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="formGenerator.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tile">
+        <textarea id="source" name="source">
+{
+	"method": "POST",
+	"action": "register.php",
+	"submit": "Зарегистрироваться",
+	"fields": [{
+			"label": "Тип пользователя",
+			"type": "info"
+		},
+		{
+			"name": "type",
+			"label": "Юридическое лицо",
+			"type": "radio",
+			"value": "1",
+			"necessary": true
+		},
+		{
+			"name": "type",
+			"label": "Физическое лицо",
+			"type": "radio",
+			"value": "2",
+			"necessary": true
+		},
+		{
+			"name": "fio",
+			"label": "ФИО",
+			"type": "text",
+			"necessary": true
+		},
+		{
+			"name": "ogrn",
+			"label": "ОГРН",
+			"type": "text",
+			"if": {
+				"type": "1"
+			},
+			"test": "\/^\\d{13}$\/",
+			"necessary": true
+		},
+		{
+			"name": "about",
+			"label": "О себе",
+			"type": "textarea"
+		}
+	]
+}
+        </textarea>
+      </div>
+      <button id="generate" type="button" name="generate">Generate</button>
+      <div class="tile" id="result">
+         <form class="form" action="register.php" method="post">
+         </form>
+      </div>
+    </div>
+  </body>
+</html>

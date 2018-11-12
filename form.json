@@ -1,0 +1,45 @@
+{
+	"method": "POST",
+	"action": "register.php",
+	"submit": "Зарегистрироваться",
+	"fields": [{
+			"label": "Тип пользователя",
+			"type": "info"
+		},
+		{
+			"name": "type",
+			"label": "Юридическое лицо",
+			"type": "radio",
+			"value": "1",
+			"necessary": true
+		},
+		{
+			"name": "type",
+			"label": "Физическое лицо",
+			"type": "radio",
+			"value": "2",
+			"necessary": true
+		},
+		{
+			"name": "fio",
+			"label": "ФИО",
+			"type": "text",
+			"necessary": true
+		},
+		{
+			"name": "ogrn",
+			"label": "ОГРН",
+			"type": "text",
+			"if": {
+				"type": "1"
+			},
+			"test": "/^\\d{13}$/",
+			"necessary": true
+		},
+		{
+			"name": "about",
+			"label": "О себе",
+			"type": "textarea"
+		}
+	]
+}
