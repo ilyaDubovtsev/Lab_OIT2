@@ -33,7 +33,6 @@ $(document).ready(function () {
 
           case "info":
             var label = document.createElement("label");
-            label.className = "info";
             label.textContent = e.label;
             document.querySelector(form.id).appendChild(label);
             break;
@@ -66,7 +65,7 @@ $(document).ready(function () {
               document.querySelector(form.id).onchange = function(){
                 var key = Object.keys(e.if);
                 var value = e.if[key];
-                if ($("input[name=" + key + "]:checked").val() == value){
+                if ($("input[name=" + key + "]:checked").val() != value){
                   $("input[name=" + e.name + "]").hide();
                   $("label[id='" + labelId + "']").hide();
                 }

@@ -46,6 +46,7 @@ input{
 }
 
 label{
+  display: block;
   font: verdana 15pt;
   color: white;
 }
